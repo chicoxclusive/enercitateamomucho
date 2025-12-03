@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Enercita ❤️</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Para ti, Enercita ❤️</h1>
+    <p class="mensaje"><strong>Te amo muchísimo</strong></p>
+    <footer>💖<br><strong>Jack 💖</strong></footer>
+</div>
+
+<script>
+// Lluvia de corazones adaptada para móviles
+function crearCorazon() {
+    const corazon = document.createElement("div");
+    corazon.classList.add("corazon");
+    corazon.innerHTML = "❤️";
+
+    // Posición aleatoria
+    corazon.style.left = Math.random() * 100 + "vw";
+
+    // Velocidad: más lenta en PC, más rápida en móvil (para no saturar)
+    const speed = window.innerWidth < 600 ? 3 : 6;
+    corazon.style.animationDuration = (speed + Math.random() * 4) + "s";
+
+    // Tamaño del corazón se ajusta a la pantalla
+    const size = window.innerWidth < 600 ? 10 + Math.random() * 20 : 15 + Math.random() * 30;
+    corazon.style.fontSize = size + "px";
+
+    document.body.appendChild(corazon);
+
+    // Borrar cuando cae
+    setTimeout(() => corazon.remove(), 9000);
+}
+
+// Intervalo optimizado: menos corazones en celular
+setInterval(crearCorazon, window.innerWidth < 600 ? 350 : 200);
+</script>
+
+</body>
+</html>
